@@ -1,0 +1,88 @@
+.main {
+  width: 65%;
+  margin: 10px auto;
+}
+
+h1 {
+  color: lightsteelblue;
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  background-color: olivedrab;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: rgb(77, 109, 13);
+}
+.cursor{
+  cursor: pointer;
+}
+.trHover{
+  transition-property: background-color ;
+  transition-duration: 0.3s;
+}
+.trHover:hover{
+  background-color: rgba(176, 196, 222, 0.651);
+}
+.editBtn {
+  width: 60px;
+  height: 35px;
+  border: 1px solid darkkhaki;
+  border-radius: 5px;
+  background-color: darkkhaki;
+  color: whitesmoke;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.editBtn:hover {
+  background-color: rgb(110, 104, 19);
+  color: white;
+}
+
+.deleteBtn {
+  width: 60px;
+  height: 35px;
+  border: 1px solid darkred;
+  border-radius: 5px;
+  background-color: darkred;
+  color: whitesmoke;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.deleteBtn:hover {
+  background-color: rgb(83, 2, 2);
+  color: white;
+}
+
+.inputChange {
+  margin-bottom: 5px;
+}
+
+.formForNewInfo {
+  width: 40%;
+  height: 35%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -80%);
+  z-index: 1;
+  background-color: white;
+  margin: 20px auto;
+  border-radius: 5px;
+  border: 1px solid rgb(188, 190, 194);
+  padding: 20px;
+}
+
+.form-control.input {
+  margin-bottom: 15px;
+}
+.hide{
+  visibility: hidden;
+}
+.active .hide{
+  visibility:visible;
+}

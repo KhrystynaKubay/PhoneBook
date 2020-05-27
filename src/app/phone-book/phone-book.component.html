@@ -1,0 +1,54 @@
+<div class="main">
+  <h1>My Phone Book</h1>
+  <div class="input-group mb-3">
+    <input type="search" class="form-control" placeholder="Text goes here" aria-label="Text goes here"
+      [(ngModel)]="searchValue" name="searchValue">
+    <div>
+      <button class="btn btn-outline-secondary" (click)="openFormForNewInfo()">Add phone</button>
+    </div>
+  </div>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <th class="cursor" [class.active]="orderToCompare === 'firstName'"(click)="setOrder('firstName')">First Name 
+          <span class="hide" [hidden]="reverseTable">▼</span>
+          <span class="hide" [hidden]="!reverseTable">▲</span>
+        </th>
+        <th class="cursor" [class.active]="orderToCompare === 'secondName'" (click)="setOrder('secondName')">Second Name
+          <span class="hide" [hidden]="reverseTable">▼</span>
+          <span class="hide" [hidden]="!reverseTable">▲</span>
+        </th>
+        <th class="cursor" [class.active]="orderToCompare === 'phoneNumber'" (click)="setOrder('phoneNumber')">Number
+          <span class="hide" [hidden]="reverseTable">▼</span>
+          <span class="hide" [hidden]="!reverseTable">▲</span>
+        </th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </thead>
+      <tbody>
+        <tr class="trHover" *ngFor="let user of phoneList | searchName:searchValue | order:orderToCompare:reverseTable; let i=index">
+          <td>{{user.firstName | titlecase}}</td>
+          <td>{{user.secondName | titlecase}}</td>
+          <td>{{user.phoneNumber | slice: 0:10}}</td>
+          <td><button class="editBtn" (click)="editUser(i)">Edit</button></td>
+          <td><button class="deleteBtn" (click)="deleteUser(i)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="addNew" class="formForNewInfo">
+    <form>
+      <button (click)="closeModal()" class="close">
+        <span>×</span>
+      </button>
+      <input type="text" class="form-control input" [(ngModel)]="newName" name="newName"
+        placeholder="First Name goes here">
+      <input type="text" class="form-control input" [(ngModel)]="newSecondName" name="newSecondName"
+        placeholder="Second Name goes here">
+      <input type="text" class="form-control input" [(ngModel)]="newNumber" name="newNumber"
+        placeholder="Phone Number goes here">
+      <input type="button" *ngIf="addStatus" class="btn btn-primary" (click)="addNewPerson()" value="Add new Person">
+      <input type="button" *ngIf="saveStatus" class="btn btn-primary" (click)="saveNewPerson()" value="Save New Info">
+    </form>
+  </div>
+</div>
